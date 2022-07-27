@@ -28,7 +28,8 @@ def plot_superficie(dominio, funcion, grid_samples=50, **plot_kwargs):
     # Curvas de Nivel
     ax = fig.add_subplot(2, 2, 2)
     ax.set(xlabel = "X", ylabel = "Y", title = "Curvas de Nivel")
-    ax = plt.contour(X, Y, Z, levels = 20, **plot_kwargs)
+    ax = plt.contour(X, Y, Z, levels = 10, **plot_kwargs)
+    ax.clabel(fontsize = 8)
 
     # Estudio de Continuidad
     ax = fig.add_subplot(2, 2, 4)
