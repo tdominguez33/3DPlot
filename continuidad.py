@@ -3,22 +3,22 @@ INCREMENTO = 0.1
 
 xContinuidad = DOMINIO[0][0]
 yContinuidad = DOMINIO[1][0]
-xLimite = float("{:.2f}".format(DOMINIO[0][1]))
-yLimite = float("{:.2f}".format(DOMINIO[1][1]))
+xMax = float("{:.2f}".format(DOMINIO[0][1]))
+yMax = float("{:.2f}".format(DOMINIO[1][1]))
 puntosDiscontinuidad = []
 
 def cambiarPunto():
-    global xContinuidad, yContinuidad, xLimite, INCREMENTO
+    global xContinuidad, yContinuidad, xMax, INCREMENTO
     xContinuidad += INCREMENTO
     xContinuidad = float("{:.2f}".format(xContinuidad))
-    if xContinuidad == xLimite:
+    if xContinuidad == xMax:
         xContinuidad = DOMINIO[0][0]
         yContinuidad += INCREMENTO
         yContinuidad = float("{:.2f}".format(yContinuidad))
 
 def estudioContinuidad(funcion):
-    global yContinuidad, esContinua
-    while yContinuidad <= yLimite:
+    global yContinuidad
+    while yContinuidad <= yMax:
         try:
             funcion(xContinuidad, yContinuidad)
             cambiarPunto()
